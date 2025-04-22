@@ -1,0 +1,16 @@
+# Docker Compose configuration for Dynamics 365 Monitor
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - SESSION_SECRET=your_session_secret
+      # Add other environment variables as needed
+    restart: always
+    volumes:
+      - ./logs:/usr/src/app/backend/logs
